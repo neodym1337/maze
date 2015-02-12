@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="056-cS-bJr">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Maze View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="MazeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="023-qT-FOV"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZnU-5z-wlW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS" customClass="MazeView">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W5d-Bo-DJY" userLabel="colour">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="aEc-zB-pvK"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qcH-0i-ygj" userLabel="down">
+                                <rect key="frame" x="128" y="265" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="pad_down">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onPadTouched:" destination="kh9-bI-dsS" eventType="touchUpInside" id="L9R-3f-72f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWD-ce-i4H" userLabel="up">
+                                <rect key="frame" x="128" y="175" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="NeL-Tb-gez"/>
+                                    <constraint firstAttribute="width" constant="64" id="wsx-YW-kyg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" image="pad_up">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onPadTouched:" destination="kh9-bI-dsS" eventType="touchUpInside" id="ivl-iW-laM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5e-fi-Hb6" userLabel="left">
+                                <rect key="frame" x="83" y="220" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" image="pad_left">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onPadTouched:" destination="kh9-bI-dsS" eventType="touchUpInside" id="1Bp-E0-jn9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojE-zp-rmE" userLabel="right">
+                                <rect key="frame" x="173" y="220" width="64" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" image="pad_right">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onPadTouched:" destination="kh9-bI-dsS" eventType="touchUpInside" id="2sv-G8-8hJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qcH-0i-ygj" firstAttribute="height" secondItem="jWD-ce-i4H" secondAttribute="height" id="634-8X-oQu"/>
+                            <constraint firstAttribute="centerX" secondItem="jWD-ce-i4H" secondAttribute="centerX" id="AxK-Pd-98e"/>
+                            <constraint firstAttribute="centerY" secondItem="jWD-ce-i4H" secondAttribute="centerY" constant="45" id="DIm-ST-5Ru"/>
+                            <constraint firstItem="W5d-Bo-DJY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="In0-Ve-6eU"/>
+                            <constraint firstItem="T5e-fi-Hb6" firstAttribute="height" secondItem="jWD-ce-i4H" secondAttribute="height" id="N52-ev-ZEC"/>
+                            <constraint firstItem="T5e-fi-Hb6" firstAttribute="height" secondItem="ojE-zp-rmE" secondAttribute="height" id="Y7P-aG-DUT"/>
+                            <constraint firstAttribute="trailing" secondItem="W5d-Bo-DJY" secondAttribute="trailing" id="a1T-OT-3Dq"/>
+                            <constraint firstAttribute="centerY" secondItem="qcH-0i-ygj" secondAttribute="centerY" constant="-45" id="bPe-kO-4uE"/>
+                            <constraint firstAttribute="centerX" secondItem="T5e-fi-Hb6" secondAttribute="centerX" constant="45" id="duB-LK-sTJ"/>
+                            <constraint firstAttribute="centerX" secondItem="ojE-zp-rmE" secondAttribute="centerX" constant="-45" id="gR3-F7-iXB"/>
+                            <constraint firstItem="qcH-0i-ygj" firstAttribute="width" secondItem="jWD-ce-i4H" secondAttribute="width" id="ggc-ta-a7P"/>
+                            <constraint firstItem="W5d-Bo-DJY" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="heU-CU-8QK"/>
+                            <constraint firstAttribute="centerY" secondItem="T5e-fi-Hb6" secondAttribute="centerY" id="ksL-mm-6Kb"/>
+                            <constraint firstAttribute="centerX" secondItem="qcH-0i-ygj" secondAttribute="centerX" id="lU7-YI-Onu"/>
+                            <constraint firstItem="T5e-fi-Hb6" firstAttribute="width" secondItem="ojE-zp-rmE" secondAttribute="width" id="phE-FH-ofM"/>
+                            <constraint firstAttribute="centerY" secondItem="ojE-zp-rmE" secondAttribute="centerY" id="xUp-Ik-vNQ"/>
+                            <constraint firstItem="T5e-fi-Hb6" firstAttribute="width" secondItem="jWD-ce-i4H" secondAttribute="width" id="zHn-8S-aE3"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="downBtn" destination="qcH-0i-ygj" id="dem-yZ-gYQ"/>
+                            <outlet property="leftBtn" destination="T5e-fi-Hb6" id="uZW-5t-iWC"/>
+                            <outlet property="playerColorView" destination="W5d-Bo-DJY" id="1Jw-ym-h8f"/>
+                            <outlet property="rightBtn" destination="ojE-zp-rmE" id="Oac-cg-5a6"/>
+                            <outlet property="upBtn" destination="jWD-ce-i4H" id="bX4-SA-S65"/>
+                        </connections>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="X1N-LR-Qq8">
+                        <barButtonItem key="rightBarButtonItem" id="uQm-uV-23G">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="WYh-a4-RM8">
+                                <rect key="frame" x="275" y="11" width="29" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" image="cast_off">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="cast_on"/>
+                                <connections>
+                                    <action selector="onCast:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Q2c-TG-z6b"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="castBtn" destination="WYh-a4-RM8" id="3ze-64-6Kh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="777" y="-61"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dat-hx-5ih">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="056-cS-bJr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YWf-fu-DKC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="bAf-Qx-coQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EAR-8T-IC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="235" y="607"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cast_off" width="29" height="22"/>
+        <image name="cast_on" width="29" height="22"/>
+        <image name="pad_down" width="64" height="64"/>
+        <image name="pad_left" width="64" height="64"/>
+        <image name="pad_right" width="64" height="64"/>
+        <image name="pad_up" width="64" height="64"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
