@@ -1,10 +1,3 @@
-//
-//  MazeViewController.m
-//  iCastMaze
-//
-//  Created by JC on 5/3/14.
-//  Copyright (c) 2014 xebia. All rights reserved.
-//
 
 #import "MazeViewController.h"
 
@@ -42,22 +35,17 @@
 
 @implementation MazeViewController
 
-// @TODO Create a Ctor (choose the right one)
-// and instantiate a scanner
-
-
-
-//_----
 
 - (void)viewDidLoad {
    self.view.delegate = self;
 
-   // @TODO Start scanning for any Chromecast device
+    //TODO: 1. Start scanning for  Chromecast device
+    
   self.deviceScanner = [[GCKDeviceScanner alloc] init];
   [self.deviceScanner addListener:self];
   [self.deviceScanner startScan];
   NSLog(@"Scanning for devices");
-  //_----
+
   [self reloadNavbar];
 }
 
@@ -76,11 +64,11 @@
 - (void)deviceManagerDidConnect:(GCKDeviceManager *)deviceManager {
    NSLog(@"Connected to device!");
 
-   // @TODO
-   // @FIXME launch workshop using its app id
+    //TODO: 3. Launch app
+
   
   [self.deviceManager launchApplication:APP_ID];
-  //_----
+
   
    [self reloadNavbar];
 }
@@ -93,12 +81,10 @@ didConnectToCastApplication:(GCKApplicationMetadata *)applicationMetadata
 
     self.player = [MazePlayer new];
   
-  // @TODO Create a maze channel with our player
-  // and add it to the device manager
-  
+  //TODO: 4. create channel and add to devicemanager
   self.mazeChannel = [[MazeChannel alloc] initWithPlayer:self.player];
   [self.deviceManager addChannel:self.mazeChannel];
-  //_----
+
 
 }
 
@@ -122,7 +108,7 @@ didConnectToCastApplication:(GCKApplicationMetadata *)applicationMetadata
 #pragma mark - View
 
 - (void)mazeView:(MazeView *)view selectedMove:(MazeMove)move {
-   // @TODO Send move to Chromecast
+   //TODO: 5. Send move to Chromecast
   [self.mazeChannel move:move];
 }
 
@@ -146,7 +132,7 @@ didConnectToCastApplication:(GCKApplicationMetadata *)applicationMetadata
 }
 
 - (void)onChooseCastDevice:(UIButton *)sender {
-    // @TODO Implement me :)
+
   NSLog(@"CC button pressed");
   
   NSArray *devices = self.deviceScanner.devices;
@@ -204,15 +190,13 @@ didConnectToCastApplication:(GCKApplicationMetadata *)applicationMetadata
   
   
 
-   // @TODO Build a device manager for the selected device
-   // @TODO Connect to the device through the manager
-  
-  //DLog(@"Device address: %@:%d", device.ipAddress, (unsigned int) device.servicePort);
-  self.selectedDevice = device;
+   // TODO: 2. Build a device manager for the selected device
+   // Connect to the device through the manager
   
   NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
   NSString *appIdentifier = [info objectForKey:@"CFBundleIdentifier"];
   
+    //
   self.deviceManager = [[GCKDeviceManager alloc] initWithDevice:self.selectedDevice clientPackageName:appIdentifier];
   self.deviceManager.delegate = self;
   [self.deviceManager connect];
