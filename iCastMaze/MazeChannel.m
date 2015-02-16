@@ -21,8 +21,7 @@
 @implementation MazeChannel
 
 - (id)initWithPlayer:(MazePlayer *)player {
-   // @TODO
-   // @FIXME use maze namespace
+
    if (!(self = [super initWithNamespace:MAZE_NAMESPACE]))
         return nil;
 
@@ -35,11 +34,11 @@
     NSDictionary *data = [GCKJSONUtils parseJSON:message];
 
    if (data[@"color"])
-       self.player.color = [UIColor colorFromHexString:data[@"color"]];
+    self.player.color = [UIColor colorFromHexString:data[@"color"]];
 }
 
 - (void)move:(MazeMove)movement {
-    // @TODO send Movement text message to device
+    // TODO: 6. send Movement text message to device
   [self sendTextMessage:[self getStringFrom:movement]];
 }
 
