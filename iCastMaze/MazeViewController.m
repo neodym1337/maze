@@ -39,7 +39,7 @@
 - (void)viewDidLoad {
    self.view.delegate = self;
 
-    //TODO: 1. Start scanning for  Chromecast device
+    //TODO: 1. Init device scanner, add listener and start scanning
     
   self.deviceScanner = [[GCKDeviceScanner alloc] init];
   [self.deviceScanner addListener:self];
@@ -64,7 +64,7 @@
 - (void)deviceManagerDidConnect:(GCKDeviceManager *)deviceManager {
    NSLog(@"Connected to device!");
 
-    //TODO: 3. Launch app
+    //TODO: 3. Launch app w device manager
 
   
   [self.deviceManager launchApplication:APP_ID];
@@ -82,6 +82,7 @@ didConnectToCastApplication:(GCKApplicationMetadata *)applicationMetadata
     self.player = [MazePlayer new];
   
   //TODO: 4. create channel and add to devicemanager
+    
   self.mazeChannel = [[MazeChannel alloc] initWithPlayer:self.player];
   [self.deviceManager addChannel:self.mazeChannel];
 
@@ -105,11 +106,13 @@ didConnectToCastApplication:(GCKApplicationMetadata *)applicationMetadata
    self.deviceManager = nil;
 }
 
-#pragma mark - View
+#pragma mark - Game UI view
 
 - (void)mazeView:(MazeView *)view selectedMove:(MazeMove)move {
    //TODO: 5. Send move to Chromecast
-  [self.mazeChannel move:move];
+    
+    [self.mazeChannel move:move];
+
 }
 
 - (MazePlayer *)mazeViewPlayer:(MazeView *)view {
@@ -187,17 +190,17 @@ didConnectToCastApplication:(GCKApplicationMetadata *)applicationMetadata
    NSBundle *bundle = [NSBundle mainBundle];
 
     NSLog(@"Connecting to device <%@>", device.friendlyName);
-  
-   self.selectedDevice = device;
 
-   // TODO: 2. Build a device manager for the selected device
-   // Connect to the device through the manager
+
   
   NSDictionary *info = [[NSBundle mainBundle] infoDictionary];
   NSString *appIdentifier = [info objectForKey:@"CFBundleIdentifier"];
   
-    //
-  self.deviceManager = [[GCKDeviceManager alloc] initWithDevice:self.selectedDevice clientPackageName:appIdentifier];
+    
+    // TODO: 2. Init device manager w the selected device, set delegate & connect
+
+    self.deviceManager = [[GCKDeviceManager alloc] initWithDevice:device clientPackageName:appIdentifier];
+
   self.deviceManager.delegate = self;
   [self.deviceManager connect];
 }

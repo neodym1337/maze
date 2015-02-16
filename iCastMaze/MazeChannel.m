@@ -39,7 +39,9 @@
 
 - (void)move:(MazeMove)movement {
     // TODO: 6. send Movement text message to device
-  [self sendTextMessage:[self getStringFrom:movement]];
+    NSString *moveString = [self getStringFrom:movement];
+    
+  [self sendTextMessage:moveString];
 }
 
 - (NSString*)getStringFrom:(MazeMove)movement {
