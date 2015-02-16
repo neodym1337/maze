@@ -4,7 +4,7 @@
 #import "MazeChannel.h"
 #import "MazePlayer.h"
 
-#define APP_ID @"4B446701"
+#define APP_ID @"5E68080B"
 
 @interface MazeViewController () <UIActionSheetDelegate>
 /**
@@ -188,7 +188,7 @@ didConnectToCastApplication:(GCKApplicationMetadata *)applicationMetadata
 
     NSLog(@"Connecting to device <%@>", device.friendlyName);
   
-  
+   self.selectedDevice = device;
 
    // TODO: 2. Build a device manager for the selected device
    // Connect to the device through the manager
