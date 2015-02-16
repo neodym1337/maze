@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3B6D5B5A-5118-4C7D-B170-4E5F7E48CF64</string>
+	<key>IDESourceControlProjectName</key>
+	<string>iCastMaze</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3DA6BCE01848E3AE4939E4CB380A72CD688D0A2F</key>
+		<string>https://github.com/neodym1337/maze.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iCastMaze.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3DA6BCE01848E3AE4939E4CB380A72CD688D0A2F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/neodym1337/maze.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3DA6BCE01848E3AE4939E4CB380A72CD688D0A2F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3DA6BCE01848E3AE4939E4CB380A72CD688D0A2F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>maze</string>
+		</dict>
+	</array>
+</dict>
+</plist>
