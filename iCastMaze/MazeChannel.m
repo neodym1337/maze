@@ -41,7 +41,6 @@
     // TODO: 6. send Movement text message to device
     NSString *moveString = [self getStringFrom:movement];
     
-  [self sendTextMessage:moveString];
 }
 
 - (NSString*)getStringFrom:(MazeMove)movement {

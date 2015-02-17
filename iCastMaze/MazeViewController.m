@@ -41,9 +41,7 @@
 
     //TODO: 1. Init device scanner, add listener and start scanning
     
-  self.deviceScanner = [[GCKDeviceScanner alloc] init];
-  [self.deviceScanner addListener:self];
-  [self.deviceScanner startScan];
+
   NSLog(@"Scanning for devices");
 
   [self reloadNavbar];
@@ -66,8 +64,6 @@
 
     //TODO: 3. Launch app w device manager
 
-  
-  [self.deviceManager launchApplication:APP_ID];
 
   
    [self reloadNavbar];
@@ -83,8 +79,6 @@ didConnectToCastApplication:(GCKApplicationMetadata *)applicationMetadata
   
   //TODO: 4. create channel and add to devicemanager
     
-  self.mazeChannel = [[MazeChannel alloc] initWithPlayer:self.player];
-  [self.deviceManager addChannel:self.mazeChannel];
 
 
 }
@@ -111,7 +105,6 @@ didConnectToCastApplication:(GCKApplicationMetadata *)applicationMetadata
 - (void)mazeView:(MazeView *)view selectedMove:(MazeMove)move {
    //TODO: 5. Send move to Chromecast
     
-    [self.mazeChannel move:move];
 
 }
 
@@ -199,10 +192,6 @@ didConnectToCastApplication:(GCKApplicationMetadata *)applicationMetadata
     
     // TODO: 2. Init device manager w the selected device, set delegate & connect
 
-    self.deviceManager = [[GCKDeviceManager alloc] initWithDevice:device clientPackageName:appIdentifier];
-
-  self.deviceManager.delegate = self;
-  [self.deviceManager connect];
 }
 
 - (void)onDisconnectToDevice {
